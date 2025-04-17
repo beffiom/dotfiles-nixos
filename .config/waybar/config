@@ -1,0 +1,104 @@
+{
+    "layer": "top", // Waybar at top layer
+    // "position": "bottom", // Waybar position (top|bottom|left|right)
+    // "height": 10, // Waybar height (to be removed for auto height)
+    // "width": , // Waybar width
+    "spacing": 0, // Gaps between modules (4px)
+
+    // Choose the order of the modules
+    "modules-left": ["clock", "wireplumber"],
+    "modules-center": ["mpris"],
+    "modules-right": ["network", "battery"],
+
+    // Modules configuration
+    "hyprland/workspaces": {
+      "disable-scroll": true,
+      "all-outputs": true,
+      "warp-on-scroll": false,
+      "format": "{icon}",
+      "format-icons": {
+        "1": "一",
+        "2": "二",
+        "3": "三",
+        "4": "四",
+        "5": "五",
+        "urgent": "",
+        "focused": "",
+        "default": ""
+      }
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "wireplumber": {
+        "format": "{volume}% {icon}",
+        "format-muted": "",
+        "format-icons": ["", "", ""],
+        "on-click": "~/.config/hypr/scripts/audio.sh"
+    },
+    "gamemode": {
+        "format": "{glyph}",
+        "format-alt": "{count} {glyph}",
+        "glyph": "",
+        "hide-not-running": true,
+        "use-icon": true,
+        "icon-name": "input-gaming-symbolic",
+        "icon-spacing": 4,
+        "tooltip": true,
+        "tooltip-format": "Games running: {count}"
+    },
+    "clock": {
+        // "timezone": "Europe/London",
+        "format": "{:%R}",
+        "tooltip": false,
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{percentage}% ",
+        "tooltip-format": "{used}/{total} used"
+    },
+    "battery": {
+        "states": {
+            "full": 100,
+            "good": 97,
+	    "okay": 60,
+            "warning": 20,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-alt": "{time} {icon}",
+        "format-time": "{H}h {M}m",
+        "format-full": "󰁹", // An empty format will hide the module
+        "format-plugged": "{capacity}% 󰂄",
+        "format-icons": ["󰁺", "󰁻", "󰂀", "󰂂", "󰁹"]
+    },
+    "network": {
+        "format-wifi": "{essid} {icon}",
+        "format-ethernet": "{ipaddr}/{cidr} ",
+        "tooltip-format": "{ifname} via {gwaddr} ", "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected 󰤫",
+        "format-alt": "{essid} | {ipaddr} {icon}",
+        "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"]
+    },
+    "mpris": {
+	    "format": "{artist} - {title}",
+	    "format-paused": "{status_icon} {artist} - {title}",
+	    "player-icons": {
+	    	"default": "",
+	    	"mpd": "🎵",
+	    	"mpv": "",
+            "brave": ""
+	    },
+	    "status-icons": {
+	    	"paused": "⏸"
+	    },
+	    // "ignored-players": ["brave"]
+    }
+}
+
