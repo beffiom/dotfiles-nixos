@@ -157,7 +157,6 @@ fonts.packages = with pkgs; [
   nerd-fonts.monofur
   nerd-fonts.monoid
   nerd-fonts.mononoki
-  nerd-fonts.mplus
   nerd-fonts.noto
   nerd-fonts.open-dyslexic
   nerd-fonts.overpass
@@ -269,7 +268,7 @@ fonts.packages = with pkgs; [
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
-      mesa.drivers
+      mesa
       amdvlk
       rocmPackages.clr.icd
       vulkan-tools
