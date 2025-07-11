@@ -22,16 +22,14 @@
       "emacs-pgtk"
   ];
   home.packages = with pkgs; [
-      brave
+      firefox
+      chromium
       nix-search-cli
       foot
       calibre
-      obsidian
       emacs-pgtk
       android-tools
       zeal
-      spotdl
-      nicotine-plus
       shellcheck
       pandoc
       vifm
@@ -46,6 +44,12 @@
       neovim
       vim
       bemenu
+      tofi
+      podman
+      lf
+      atuin
+      beets
+      nicotine-plus
       tmux
       yazi
       git
@@ -57,9 +61,6 @@
       font-awesome
       cmatrix
       zoxide
-      #protonvpn-cli
-      protonvpn-cli_2
-      #proton-pass
       speedtest-cli
       alsa-utils
       pipewire
@@ -71,7 +72,6 @@
       bluetuith
       (mpv.override {scripts = [mpvScripts.mpris];})
       libva
-      nix-search-cli
       waybar-mpris
       ffmpeg
       ueberzugpp
@@ -110,9 +110,10 @@
       hunspellDicts.en_US
       mythes
       capitaine-cursors
-      zathura
-      #mpd
-      #ncmpcpp
+      mupdf
+      mpd
+      mpc
+      rmpc
       rocmPackages.clr.icd
       qbittorrent
       libvirt
@@ -120,6 +121,16 @@
       virt-manager
       brightnessctl
       unzip
+      udisks
+      lua
+      clojure
+      clojure-lsp
+      go
+      mullvad
+      neomutt
+      isync
+      python314full
+      pipx
     # # Adds the "hello" command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -267,13 +278,11 @@
       edit              = "nvim";
       yazi              = "yazi --cwd-file $(pwd)";
       vifm              = "bash ~/.config/vifm/scripts/vifmrun";
-      f                 = "yazi --cwd-file $(pwd)";
       ls                = "ls -hN --color=auto --group-directories-first";
       la                = "ls -A";
       grep              = "grep --color=auto";
       diff              = "diff --color=auto";
       wifi              = "nmtui";
-      reader            = "brave --app=https://read.readwise.io";
       bluetooth         = "bluetuith";
       audio             = "pulsemixer";
       ytd               = "yt-dlp --cookies-from-browser brave --progress --embed-subs --embed-metadata --embed-chapters --sponsorblock-remove Sponsor -o '[%(uploader)s] %(title)s'";
@@ -307,23 +316,19 @@
     shellAliases  =  {
       e                 = "nvim";
       edit              = "nvim";
-
       yazi              = "yazi --cwd-file $(pwd)";
       vifm              = "bash ~/.config/vifm/scripts/vifmrun";
-      f                 = "yazi --cwd-file $(pwd)";
       ls                = "ls -hN --color=auto --group-directories-first";
       la                = "ls -A";
       grep              = "grep --color=auto";
       diff              = "diff --color=auto";
       wifi              = "nmtui";
-      reader            = "brave --app=https://read.readwise.io";
       bluetooth         = "bluetuith";
       audio             = "pulsemixer";
-      ytd               = "yt-dlp --cookies-from-browser brave --progress --console-title --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --sponsorblock-remove Sponsor -o '[%(uploader)s] %(title)s'";
+      ytd               = "yt-dlp --progress --console-title --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --sponsorblock-remove Sponsor -o '[%(uploader)s] %(title)s'";
       ytd-date          = "yt-dlp --format bestvideo+bestaudio --progress --console-title --embed-subs --embed-thumbnail --embed-metadata --embed-chapters --sponsorblock-remove Sponsor -o '[%(upload_date)s %(uploader)s] %(title)s'";
       yta               = "yt-dlp -x --format m4a";
       bemenu            = "bemenu-run -c -l 10 down -M 650 --scrollbar none -f --single-instance --fn 'FontAwesome 22' --hf '#85678f' --tf '#707880' -B 10 --bdr '#85678f' -R 15 -p run:";
-      rtorrent          = "rtorrent";
       update-nix        = "sudo nixos-rebuild switch --upgrade --flake ~/.config/home-manager --impure";
       update-home       = "home-manager switch --flake ~/.config/home-manager --impure";
       edit-nix          = "sudo -E nvim /etc/nixos/configuration.nix";
